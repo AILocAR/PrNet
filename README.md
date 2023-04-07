@@ -41,3 +41,45 @@ The preprocessed data files are put under:
 
 
 ## PrNet Implementation (Coming soon)
+PrNet is based on a simple Multilayer perceptron (MLP) structure and implemented using PyTorch and d2l libraries. The related code is included under:
+
+      `PrNet/DNN`
+And the weights we trained are stored in:
+
+      `PrNet/DNN/Weights/Route1 or Route2`
+👨🏻‍💻 Our code was developed in a `conda` environment running on Ubuntu 18.04.6 LTS. To create the `conda` environment, use: 
+
+      `conda env create -f environment.yml`
+If you wanna train it by yourself, run the cells in `PrNet/DNN/PrNet_MultipleFile_parallel.ipynb` in turn. Specifically,
+* Set the directory for training data files, e.g.,
+
+      `training_data_dir = "../Data/Route2/Training/"`
+* Tune the number of training epochs and learning rate in the cell "Training Process", e.g.,
+
+      `num_epochs, lr = 100, 0.001`
+* Save the weights of PrNet in the cell "Save Weights":
+
+      `torch.save({
+            'model_state_dict': net.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            }, 'PrNet_Layer20_H40_heading_400.tar')`
+* After training the neural network, set the directory for the testing data file in the cell "Evaluation Process", e.g.,
+
+      `data_file_eval = "../Data/Route1/Testing/SvPVT3D_Error_label_dynamic_2020-05-14-US-MTV-1.csv"`
+* Load the weight file, e.g.,
+
+      `checkpoint = torch.load('Weights/Route2/PrNet_Layer20_H40_heading_400.tar')
+       model_eval.load_state_dict(checkpoint['model_state_dict'])`
+* The predicted pseudorange bias will be logged into a .csv file, e.g.,
+
+      `prm_bias_np_df.to_csv('PrM_Bias_2020-05-14-US-MTV-1.csv')`
+Put the predicted pseudorange bias file to `PrNet\Preprocessing` and modify the following lines of code.
+* In GpsWlsPvtEKF.m:
+
+      `#101 GT_data = load('PrM_Bias_2020-05-14-US-MTV-1.csv');
+       #216 prM = prM - GT_data(index_GT,end);
+       #434 prM = prM - GT_data(index_GT,end);`
+* In MHEstimator.m:
+
+      `#50  prM = prM - GT_data(index_GT,end);`
+* Run ProcessGnssMeasScriptPrNet.m to process the corrected pseudoranges and get the positioning results.
