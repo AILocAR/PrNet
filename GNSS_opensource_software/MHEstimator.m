@@ -1,4 +1,4 @@
-function [xHat_k,Sum_numSvs,svid_unique] = MHEstimator(CurrentEpoch,gnssMeas,allGpsEph,WindowSize,xo,weekNum,GT_data, count1, iono)
+function [xHat_k,Sum_numSvs,svid_unique] = MHEstimator(CurrentEpoch,gnssMeas,allGpsEph,WindowSize,xo,weekNum, count1, iono)
 
 xHat_k = []; % state updates at the kth epoch
 
@@ -56,7 +56,7 @@ for j=1:L+1
     %for those svIds with valid ephemeris, pack prs matrix for WlsNav
     prM = gnssMeas.PrM(CurrentEpoch-L+j-1,iValid(iSv))';
  
-    index_GT = GT_data(:,2) == (CurrentEpoch-L+j-1);
+%     index_GT = GT_data(:,2) == (CurrentEpoch-L+j-1);
 %     prM_bias = -sin(GT_data(index_GT, end-1)) * mean(GT_data(index_GT,end)./-sin(GT_data(index_GT, end-1)));
 %     prM_bias = -sin(GT_data(index_GT, 7)) * mean(GT_data(index_GT,end)./-sin(GT_data(index_GT, 7)));
 %     if CurrentEpoch-L+j-1 > 884 && CurrentEpoch-L+j-1 < 1036

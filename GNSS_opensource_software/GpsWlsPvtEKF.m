@@ -100,7 +100,7 @@ elapsed_time_rts = 0;
 
 % GT_data = load('DenoisedPrM.csv');
 % GT_data = load('PrM_Bias.csv');
-GT_data = load('PrM_Bias_2020-05-14-US-MTV-1_AR3_R.csv');
+% GT_data = load('PrM_Bias_2020-05-14-US-MTV-1_AR3_R.csv');
 % GT_data = load('SvPVT3D_Error_label_dynamic_data_2020-06-05-US-MTV-1.csv');
 
 
@@ -217,7 +217,7 @@ for i=offset:N
         %% WLS PVT -----------------------------------------------------------------
         %for those svIds with valid ephemeris, pack prs matrix for WlsNav
         prM     = gnssMeas.PrM(i,iValid(iSv))';
-        index_GT = GT_data(:,2) == i;
+%         index_GT = GT_data(:,2) == i;
 %         if i > 884 && i < 1036
 %         prM = prM - GT_data(index_GT,end-3);
 %         end
@@ -436,7 +436,7 @@ for i=offset:N
         
         % Compute satellite positions
         prM     = gnssMeas.PrM(i,iValid(iSv))';
-        index_GT = GT_data(:,2) == i;
+%         index_GT = GT_data(:,2) == i;
 %         if i > 884 && i < 1036
 %         prM = prM - GT_data(index_GT,end-3);
 %         end
@@ -497,11 +497,11 @@ for i=offset:N
         % Clock discontinuity and Satellite discontinuity
         continue;
     else      
-%         % The window size of MHE, the number of historical data excluding the current epoch
-%         WindowSize = 8;  
+        % The window size of MHE, the number of historical data excluding the current epoch
+        WindowSize = 8;  
         % N =2 in urban areas
-        WindowSize = 2;
-        [xHat_MHE,Sum_numSvs,svid_unique] = MHEstimator(i,gnssMeas,allGpsEph,WindowSize,xo_MHE,weekNum,GT_data,count_conti,iono);
+%         WindowSize = 2;
+        [xHat_MHE,Sum_numSvs,svid_unique] = MHEstimator(i,gnssMeas,allGpsEph,WindowSize,xo_MHE,weekNum,count_conti,iono);
 
         if Sum_numSvs<4 || length(svid_unique)<4
             continue;%skip to next epoch
