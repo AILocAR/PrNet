@@ -26,7 +26,7 @@ We use the open data set for [Google Smartphone Decimeter Challenge (GSDC) 2021]
     * Fingerprinting: Downtown San Jose City
     * Cross-trace: Downtown San Jose City
 
-<img src="Routes.png" width="1200" height="600">
+<img src="Routes.png" width="1200" height="550">
 
 Our data are put under:
 
