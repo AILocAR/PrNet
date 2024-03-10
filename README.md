@@ -7,7 +7,7 @@ The codes are the implementation of the following paper:
 ## Overview
 PrNet is a neural network 🤖 for correcting pseudoranges to improve positioning with Android 📱 raw GNSS 🛰️ measurements. This repository includes the pre-processing/post-processing codes, the codes of PrNet, and the data set. 
 
-<img src="Overview_prnet_revised.png" width="600" height="500">
+![](Overview_prnet_revised.png)
 
 ## Requirement
 Pre-processing and post-processing codes:
@@ -26,7 +26,7 @@ We use the open data set for [Google Smartphone Decimeter Challenge (GSDC) 2021]
     * Fingerprinting: Downtown San Jose City
     * Cross-trace: Downtown San Jose City
 
-<img src="Routes.png" width="1200" height="550">
+![](Routes.png)
 
 Our data are put under:
 
@@ -66,7 +66,7 @@ Get started (using rural fingerprinting positioning as an example):
 ## PrNet Implementation (Coming soon)
 PrNet is based on a simple Multilayer perceptron (MLP) structure and implemented using PyTorch and d2l libraries. 
 
-<img src="PrNetNew.png" width="400" height="200">
+![](PrNetNew.png)
 
 The related code is included under:
 
