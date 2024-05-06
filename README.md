@@ -17,7 +17,7 @@ PrNet codes:
 * Ubuntu 18.04.6 LTS or later 
 * Python 3.8.13 or later
 
-## Data (Coming soon)
+## Data
 We use the open data set for [Google Smartphone Decimeter Challenge (GSDC) 2021](https://www.kaggle.com/competitions/google-smartphone-decimeter-challenge/overview) to evaluate our method. We use the dataset to design four scenarios in tow areas, including
 * Rural Areas 🚗🛣️
     * Fingerprinting: Interstate 280 (I-280) highway between San Bruno and Mountain View, U.S. Highway 101 between Brisbane and Mountain View
@@ -32,7 +32,7 @@ Our data are put under:
 
       `PrNet/Data/RouteR or RouteU`
 
-## Pre-processing Android Raw GNSS Measurements (Coming soon)
+## Pre-processing Android Raw GNSS Measurements
 The pre-processing codes (MATLAB) are used to generate training and testing data from the original [GSDC dataset](https://www.kaggle.com/competitions/google-smartphone-decimeter-challenge/overview). These codes are based on our [androidGnss](https://github.com/AILocAR/androidGnss) repository. 
 
 The codes are put under:
@@ -63,7 +63,7 @@ Get started (using rural fingerprinting positioning as an example):
       `SvPVT3D_Error_label_dynamic_2020-05-29-US-MTV-1.csv` with a header
       `SvPVT3D_Error_label_dynamic_data_2020-05-29-US-MTV-1.csv` without a header
 
-## PrNet Implementation (Coming soon)
+## PrNet Implementation
 PrNet is based on a simple Multilayer perceptron (MLP) structure and implemented using PyTorch and d2l libraries. 
 
 ![](PrNetNew.png)
@@ -103,7 +103,7 @@ Get started:
 
       `PrNet/Neural_Pseudorange_Correction/PrM_Bias_2020-05-14-US-MTV-1.csv`
 
-## Post-processing Android Raw GNSS Measurements (Coming soon)
+## Post-processing Android Raw GNSS Measurements
 The post-processing codes (MATLAB) are used to calculate locations using Android raw GNSS measurements and the pseudorange errors predicted by PrNet. The codes are generally same as the pre-processing codes.
 
 The codes are put under:
