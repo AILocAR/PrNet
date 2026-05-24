@@ -65,7 +65,7 @@ Get started (using rural fingerprinting positioning as an example):
       `SvPVT3D_Error_label_dynamic_data_2020-05-29-US-MTV-1.csv` without a header
 
 ## PrNet Implementation
-PrNet is based on a simple Multilayer perceptron (MLP) structure and implemented using PyTorch and d2l libraries. 
+PrNet is based on a simple Multilayer Perceptron (MLP) structure and implemented using PyTorch and d2l libraries. 
 
 ![](PrNetNew.png)
 
@@ -87,7 +87,7 @@ Get started:
 * Step 3: Set the directory for training data files, e.g.,
 
       `training_data_dir = "../Data/RouteR/Training/"`
-* Step 4: Config the number of training epochs and learning rate in the cell "Training Process", e.g.,
+* Step 4: Configure the number of training epochs and learning rate in the cell "Training Process", e.g.,
 
       `num_epochs, lr = 500, 0.01`
 * Step 5: Run the cell "Training Process" to train PrNet. The trained model will be saved under the same root directory, e.g.,
@@ -105,7 +105,7 @@ Get started:
       `PrNet/Neural_Pseudorange_Correction/PrM_Bias_2020-05-14-US-MTV-1.csv`
 
 ## Post-processing Android Raw GNSS Measurements
-The post-processing codes (MATLAB) are used to calculate locations using Android raw GNSS measurements and the pseudorange errors predicted by PrNet. The codes are generally same as the pre-processing codes.
+The post-processing codes (MATLAB) are used to calculate locations using Android raw GNSS measurements and the pseudorange errors predicted by PrNet. The codes are generally the same as the pre-processing codes.
 
 The codes are put under:
 
@@ -120,10 +120,10 @@ The main entrance for rural cross-trace, urban fingerprinting, and urban cross-t
     `PrNet/GNSS_opensource_software/ProcessGnssMeasScriptGnssNet_Dynamic_PrNet_SJC_test.m`
 
 Get started (using rural fingerprinting positioning as an example):
-* Step 1: Put the predicted pseudorange error file to the root directory of MATLAB codes, e.g.,
+* Step 1: Put the predicted pseudorange error file in the root directory of MATLAB codes, e.g.,
 
      `PrNet/GNSS_opensource_software/PrM_Bias_2020-05-14-US-MTV-1.csv`
-* Step 2: Modify the following line of codes in GpsWlsPvtEKF_test.m:
+* Step 2: Modify the following line of code in GpsWlsPvtEKF_test.m:
 
       `#103 GT_data = load('PrM_Bias_2020-05-14-US-MTV-1.csv');
 
